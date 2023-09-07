@@ -6,7 +6,8 @@ public enum PanelType
     Menu,
     Game,
     GameOver,
-    LevelComplete
+    LevelComplete,
+    Upgrade
 }
 
 public class UIManager : MonoBehaviour
@@ -38,9 +39,14 @@ public class UIManager : MonoBehaviour
             panel.gameObject.SetActive(panel.Type == type);
     }
 
-    private void OpenMenu()
+    public void OpenMenu()
     {
         OpenPanel(PanelType.Menu);
+    }
+
+    public void OpenUpgrades()
+    {
+        OpenPanel(PanelType.Upgrade);
     }
 
     private void OpenGame()

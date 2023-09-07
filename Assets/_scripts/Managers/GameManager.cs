@@ -37,7 +37,8 @@ public class GameManager : Singleton<GameManager>
     public void GameWin()
     {
         if (CurrentState == GameState.End) return;
-
+        GameConfig.Instance.GameParameters.completedLevelsCount++;
+        GameConfig.Instance.SaveParameters();
         ChangeState(GameState.End);
         EventBus.OnLvlComplete?.Invoke();
     }
